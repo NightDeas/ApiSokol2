@@ -39,13 +39,13 @@ namespace WebApi.Services
             return DTOEntities;
         }
 
-        public async Task<decimal?> SetDiscount(Guid id, decimal discount)
+        public async Task<decimal> SetDiscount(Guid id, decimal discount)
         {
           
             return await Repository.SetDiscount(id, discount);
         }
 
-        public async Task<decimal?> AppendDiscount(Guid id, decimal discount)
+        public async Task<decimal> AppendDiscount(Guid id, decimal discount)
         {
         
             return await Repository.AppendDiscount(id, discount);

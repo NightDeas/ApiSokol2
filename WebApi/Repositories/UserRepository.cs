@@ -55,7 +55,7 @@ namespace WebApi.Repositories
         }
 
 
-        public async Task<decimal?> SetDiscount(Guid id, decimal discount)
+        public async Task<decimal> SetDiscount(Guid id, decimal discount)
         {
             var user = await GetAsync(id);
             if (user == null)
@@ -66,7 +66,7 @@ namespace WebApi.Repositories
             return user.Discount;
         }
 
-        public async Task<decimal?> AppendDiscount(Guid id, decimal discount)
+        public async Task<decimal> AppendDiscount(Guid id, decimal discount)
         {
             var user = await GetAsync(id);
             if (user == null)

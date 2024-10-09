@@ -22,7 +22,9 @@ namespace WebApi.Repositories
 
         public async Task<Guid> PostAsync(News news)
         {
+            news.Created = DateTime.UtcNow;
             await Context.News.AddAsync(news);
+            await Context.SaveChangesAsync();
             return news.Id;
         }
     }

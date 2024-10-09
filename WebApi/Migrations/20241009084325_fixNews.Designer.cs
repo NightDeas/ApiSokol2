@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebApi;
@@ -11,9 +12,11 @@ using WebApi;
 namespace WebApiMigrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20241009084325_fixNews")]
+    partial class fixNews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,8 +49,8 @@ namespace WebApiMigrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e27b1bb1-555e-4dde-bb6d-fd6e65bbacf8"),
-                            Created = new DateTime(2024, 10, 16, 8, 50, 6, 208, DateTimeKind.Utc).AddTicks(4359),
+                            Id = new Guid("e335c050-354b-42f4-8561-9118339c6cb9"),
+                            Created = new DateTime(2024, 10, 25, 8, 43, 24, 779, DateTimeKind.Utc).AddTicks(5681),
                             Description = "Desc1",
                             Title = "Title1"
                         });
@@ -82,11 +85,11 @@ namespace WebApiMigrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("458c8a33-8b85-48e3-8a45-35255ba26b00"),
+                            Id = new Guid("d02ff807-131c-45e8-a6e5-1ed8d2890a7e"),
                             Count = 1,
-                            ProductId = new Guid("3a4d9b48-ed19-4578-bcb5-92418e08403a"),
+                            ProductId = new Guid("48317e7e-b453-4bc6-92d2-3eab900c0fa6"),
                             Sum = 1m,
-                            UserId = new Guid("fbf9d1e1-5773-4507-81ba-35ad787ed33d")
+                            UserId = new Guid("1531297b-56d7-4995-af25-e46596f6aa57")
                         });
                 });
 
@@ -118,83 +121,83 @@ namespace WebApiMigrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3a4d9b48-ed19-4578-bcb5-92418e08403a"),
+                            Id = new Guid("48317e7e-b453-4bc6-92d2-3eab900c0fa6"),
                             Count = 1,
                             Name = "Цифровой арт \"Далекое будущее\"",
                             Price = 5000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("3b21bf5f-9e8e-4d44-9694-9e6bdf552154"),
+                            Id = new Guid("6775fa60-fc4e-4ca0-a1ed-9b32d7e53350"),
                             Count = 1,
                             Name = "Видеоурок \"Как сделать первый 3D дизайн\"",
                             Price = 2000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("b25d5a5a-2155-4944-9455-b620d68c713b"),
+                            Id = new Guid("81aad1fd-3801-4a02-9458-02a7854a5512"),
                             Count = 1,
                             Name = "Курс \"Художник за месяц\"",
                             Price = 6000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("96e495df-484f-419d-a3f0-f01171b0bf43"),
+                            Id = new Guid("09afb0b8-76fe-40d1-917d-c0d6efcb6f81"),
                             Count = 1,
                             Name = "Песня, сгенерированная нейросетью",
                             Price = 100m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("b7cc61d0-3bd5-4d41-8efd-1f8e63352b1c"),
+                            Id = new Guid("f9ef5306-25e5-4d70-88d2-dbea89850c34"),
                             Count = 1,
                             Name = "Цифровой арт \"Цифровое искусство\"",
                             Price = 5000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("dada8280-b999-4fa7-bf76-88326b1bb056"),
+                            Id = new Guid("dc988e29-6ef9-4c44-89e9-afd13d828fd6"),
                             Count = 1,
                             Name = "Видеоурок \"Песня \"Ромашки\" на гитаре\"",
                             Price = 2000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("9bc91a43-4f0e-4db6-a7b2-dc75409d7644"),
+                            Id = new Guid("5a1a0003-bbf5-43bc-88fa-3f1f5ba687d5"),
                             Count = 1,
                             Name = "Цифровой арт \"Красивый город\"",
                             Price = 5000m,
-                            TypeId = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f")
+                            TypeId = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75")
                         },
                         new
                         {
-                            Id = new Guid("239dc1f9-f6fa-4a25-a7c6-c2da45e34191"),
+                            Id = new Guid("bf29ea44-813b-47bb-b636-98959aa45234"),
                             Count = 1,
                             Name = "Реклама",
                             Price = 10000m,
-                            TypeId = new Guid("01b7d1d6-fa88-4fa5-85ae-3c54a6602fe2")
+                            TypeId = new Guid("045eef69-46cf-4a29-bcb4-bd82fb18a195")
                         },
                         new
                         {
-                            Id = new Guid("9e33e7c8-e0e3-44de-acda-dee3973232b7"),
+                            Id = new Guid("7ba56657-d1b0-4a62-a933-04381519feee"),
                             Count = 1,
                             Name = "Помощь с идеей для вашего проекта",
                             Price = 500m,
-                            TypeId = new Guid("01b7d1d6-fa88-4fa5-85ae-3c54a6602fe2")
+                            TypeId = new Guid("045eef69-46cf-4a29-bcb4-bd82fb18a195")
                         },
                         new
                         {
-                            Id = new Guid("6fd2001c-1772-461e-bfa5-a85c259448c6"),
+                            Id = new Guid("0984269e-e6f6-4d76-9067-38895d1a91bd"),
                             Count = 1,
                             Name = "Онлайн урок по рисованию",
                             Price = 1900m,
-                            TypeId = new Guid("01b7d1d6-fa88-4fa5-85ae-3c54a6602fe2")
+                            TypeId = new Guid("045eef69-46cf-4a29-bcb4-bd82fb18a195")
                         });
                 });
 
@@ -215,12 +218,12 @@ namespace WebApiMigrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6c62e675-b04d-4914-ae02-e69151b66a8f"),
+                            Id = new Guid("d05fe978-8895-462a-af5b-82c3afd94a75"),
                             Name = "Товар"
                         },
                         new
                         {
-                            Id = new Guid("01b7d1d6-fa88-4fa5-85ae-3c54a6602fe2"),
+                            Id = new Guid("045eef69-46cf-4a29-bcb4-bd82fb18a195"),
                             Name = "Услуга"
                         });
                 });
@@ -251,7 +254,7 @@ namespace WebApiMigrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fbf9d1e1-5773-4507-81ba-35ad787ed33d"),
+                            Id = new Guid("1531297b-56d7-4995-af25-e46596f6aa57"),
                             Discount = 10m,
                             FIO = "Иванов Иван Иванович",
                             IsClient = true,
@@ -259,7 +262,7 @@ namespace WebApiMigrations
                         },
                         new
                         {
-                            Id = new Guid("d01fe64d-c823-4b7a-948a-b30dd58a9043"),
+                            Id = new Guid("d972a32d-2ec9-4b26-8970-ca36461b8e54"),
                             Discount = 0m,
                             FIO = "Петров Петр Петрович",
                             IsClient = true,
@@ -267,7 +270,7 @@ namespace WebApiMigrations
                         },
                         new
                         {
-                            Id = new Guid("90f537d4-c46b-4f4e-9978-9c1156fb2d30"),
+                            Id = new Guid("81789b7c-749c-43a8-a30e-4e6fe7a6a01b"),
                             Discount = 0m,
                             FIO = "Максимов Максим Максимович",
                             IsClient = false,

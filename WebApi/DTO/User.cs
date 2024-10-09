@@ -4,7 +4,7 @@
     {
         public Guid Id { get; set; }
         public bool IsClient { get; set; }
-        public decimal? Discount { get; set; }
+        public decimal Discount { get; set; }
         public bool IsProvider { get; set; }
         public string FIO { get; set; }
 
