@@ -30,5 +30,22 @@ namespace WebApi.Services
             var DTOEntities = DALEntities.Select(x => new DTO.User().ConvertDALToDTOModel(x)).ToList();
             return DTOEntities;
         }
+
+        public async Task<decimal?> SetDiscount(Guid id, decimal discount)
+        {
+          
+            return await Repository.SetDiscount(id, discount);
+        }
+
+        public async Task<decimal?> AppendDiscount(Guid id, decimal discount)
+        {
+        
+            return await Repository.AppendDiscount(id, discount);
+        }
+
+        public async Task<bool> AnyAsync(Guid id)
+        {
+            return await Repository.AnyAsync(id);
+        }
     }
 }

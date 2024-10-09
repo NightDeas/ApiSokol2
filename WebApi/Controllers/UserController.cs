@@ -34,5 +34,25 @@ namespace WebApi.Controllers
         {
             return Ok(await Service.GetAllProviderAsync());
         }
+
+        [HttpPut("discount/set")]
+        public async Task<IActionResult> SetDiscount(Guid userId, decimal newDiscount)
+        {
+            if (!await Service.AnyAsync(userId))
+                return NotFound("User not found");
+            if (newDiscount < 0)
+                return BadRequest("discount < 0");
+           return Ok(await Service.SetDiscount(userId, newDiscount));
+        }
+
+        [HttpPut("discount/update")]
+        public async Task<IActionResult> AppendDiscount(Guid userId, decimal discount)
+        {
+            if (!await Service.AnyAsync(userId))
+                return NotFound("User not found");
+            if (discount < 0)
+                return BadRequest("discount < 0");
+            return Ok(await Service.AppendDiscount(userId, discount));
+        }
     }
 }

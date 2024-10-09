@@ -20,6 +20,11 @@ namespace WebApi.Repositories
             return Context.Users.AsNoTracking().ToListAsync();
         }
 
+        public Task<User> GetAsync(Guid id)
+        {
+            return Context.Users.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public Task<List<User>> GetAllClientAsync()
         {
             return Context.Users
@@ -50,5 +55,31 @@ namespace WebApi.Repositories
         }
 
 
+        public async Task<decimal?> SetDiscount(Guid id, decimal discount)
+        {
+            var user = await GetAsync(id);
+            if (user == null)
+                return -1;
+            user.Discount = discount;
+            Context.Update(user);
+            await Context.SaveChangesAsync();
+            return user.Discount;
+        }
+
+        public async Task<decimal?> AppendDiscount(Guid id, decimal discount)
+        {
+            var user = await GetAsync(id);
+            if (user == null)
+                return -1;
+            user.Discount += discount;
+            Context.Update(user);
+            await Context.SaveChangesAsync();
+            return user.Discount;
+        }
+
+        public async Task<bool> AnyAsync(Guid id)
+        {
+            return await Context.Users.AnyAsync(x => x.Id == id);
+        }
     }
 }
