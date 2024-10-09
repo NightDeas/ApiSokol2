@@ -56,8 +56,6 @@ namespace WebApi.Controllers
         {
             if (!await Service.AnyAsync(userId))
                 return NotFound("User not found");
-            if (discount < 0)
-                return BadRequest("discount < 0");
             return Ok(await Service.AppendDiscount(userId, discount));
         }
     }
