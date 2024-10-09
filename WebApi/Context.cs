@@ -56,13 +56,26 @@ namespace WebApi
                     Id= Guid.NewGuid(),
                     IsClient = true,
                     IsProvider = true,
-                    FIO = "Фамилия имя отчество",
-                    Discount = 20,
+                    FIO = "Иванов Иван Иванович",
+                    Discount = 10,
                 },
                 new()
                 {
+                    Id= Guid.NewGuid(),
+                    IsClient = true,
+                    IsProvider = false,
+                    FIO = "Петров Петр Петрович",
+                    Discount = 0,
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    IsClient = false,
+                    IsProvider = true,
+                    FIO = "Максимов Максим Максимович",
+                    Discount = 0,
+                },
 
-                }
             };
 
             modelBuilder.Entity<User>().HasData(users);
@@ -74,12 +87,88 @@ namespace WebApi
                 {
                     Id= Guid.NewGuid(),
                     Count = 1,
-                    Price = 1,
+                    Price = 5000,
                     TypeId = typeProducts[0].Id,
+                    Name = "Цифровой арт \"Далекое будущее\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 2000,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Видеоурок \"Как сделать первый 3D дизайн\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 6000,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Курс \"Художник за месяц\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 100,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Песня, сгенерированная нейросетью"
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 5000,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Цифровой арт \"Цифровое искусство\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 2000,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Видеоурок \"Песня \"Ромашки\" на гитаре\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 5000,
+                    TypeId = typeProducts[0].Id,
+                    Name = "Цифровой арт \"Красивый город\""
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 10000,
+                    TypeId = typeProducts[1].Id,
+                    Name = "Реклама"
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 500,
+                    TypeId = typeProducts[1].Id,
+                    Name = "Помощь с идеей для вашего проекта"
+                },
+                new()
+                {
+                    Id= Guid.NewGuid(),
+                    Count = 1,
+                    Price = 1900,
+                    TypeId = typeProducts[1].Id,
+                    Name = "Онлайн урок по рисованию"
                 }
             };
 
             modelBuilder.Entity<Product>().HasData(products);
+
+
+
 
 
 
