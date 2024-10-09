@@ -56,5 +56,10 @@ namespace WebApi.Repositories
             await Context.SaveChangesAsync();
             return product.Count;
         }
+
+        public async Task<bool> AnyAsync(Guid id)
+        {
+            return await Context.Products.AnyAsync(x => x.Id == id);
+        }
     }
 }

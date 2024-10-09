@@ -24,16 +24,21 @@ namespace WebApi
                 .WithMany(x => x.Products)
                 .HasForeignKey(x => x.TypeId);
 
-            modelBuilder.Entity<Order>()
-             .HasOne(x => x.Product)
-             .WithMany(x => x.Orders)
-             .HasForeignKey(x => x.ProductId);
 
             modelBuilder.Entity<Order>()
            .HasOne(x => x.User)
            .WithMany(x => x.Orders)
            .HasForeignKey(x => x.UserId);
 
+            modelBuilder.Entity<OrderProducts>()
+             .HasOne(x => x.Order)
+             .WithMany(x => x.OrderProducts)
+             .HasForeignKey(x => x.OrderId);
+
+            modelBuilder.Entity<OrderProducts>()
+             .HasOne(x => x.Product)
+             .WithMany(x => x.OrderProducts)
+             .HasForeignKey(x => x.ProductId);
 
             List<TypeProduct> typeProducts = new List<TypeProduct>()
             {
@@ -180,8 +185,6 @@ namespace WebApi
                 new()
                 {
                     Id= Guid.NewGuid(),
-                    Count = 1,
-                    ProductId = products[0].Id,
                     Sum = 1,
                     UserId = users[0].Id
                 }
@@ -211,5 +214,6 @@ namespace WebApi
         public DbSet<TypeProduct> TypeProducts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<OrderProducts> OrderProducts { get; set; }
     }
 }

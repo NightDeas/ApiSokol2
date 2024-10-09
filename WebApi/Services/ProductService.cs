@@ -12,6 +12,10 @@ namespace WebApi.Services
             Repository = repository;
         }
 
+        public async Task<bool> AnyAsync(Guid id)
+        {
+           return await Repository.AnyAsync(id);
+        }
         public async Task<List<Product>> GetAllAsync()
         {
             var DALModels = await Repository.GetAllAsync();
