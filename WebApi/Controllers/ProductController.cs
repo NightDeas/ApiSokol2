@@ -38,7 +38,7 @@ namespace WebApi.Controllers
         {
             return Ok(await Service.PostAsync(product));
         }
-        [HttpPut]
+        [HttpPut("{id:guid}/count")]
         public async Task<IActionResult> UpdateCountAsync(Guid id, int newCount)
         {
             if (newCount < 0)

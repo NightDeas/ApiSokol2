@@ -193,7 +193,7 @@ namespace WebApi
                 {
                     Id= Guid.NewGuid(),
                     Title = "Title1",
-                    Created = DateTime.Now,
+                    Created = DateTime.UtcNow.AddDays(Random.Shared.Next(31)),
                     Description = "Desc1",
                 }
 

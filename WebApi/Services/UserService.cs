@@ -17,6 +17,14 @@ namespace WebApi.Services
             return await Repository.PostAsync(user.ConvertBLLToDALModel(user));
         }
 
+        public async Task<List<DTO.User>> GetAllAsync()
+        {
+            var DALEntities = await Repository.GetAllAsync();
+            var DTOEntities = DALEntities.Select(x => new DTO.User().ConvertDALToDTOModel(x)).ToList();
+            return DTOEntities;
+        }
+
+
         public async Task<List<DTO.User>> GetAllClientAsync()
         {
             var DALEntities = await Repository.GetAllClientAsync();

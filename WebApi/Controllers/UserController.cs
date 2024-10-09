@@ -23,6 +23,12 @@ namespace WebApi.Controllers
             return Ok(await Service.PostAsync(User));
         }
 
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await Service.GetAllAsync());
+        }
+
         [HttpGet("clients")]
         public async Task<IActionResult> GetAllClients()
         {
